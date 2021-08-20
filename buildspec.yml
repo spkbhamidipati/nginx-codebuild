@@ -17,10 +17,6 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       #- $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
-      - $(aws configure set aws_access_key_id AKIAUSMICDMC6GT7ECE4)
-      - $(aws configure set aws_secret_key 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)
-      - $(aws configure set region us-east-2)
-      - $(aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.us-east-2.amazonaws.com)
       - CODEBUILD_RESOLVED_SOURCE_VERSION="${CODEBUILD_RESOLVED_SOURCE_VERSION:-$IMAGE_TAG}"
       - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_URI="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG"
