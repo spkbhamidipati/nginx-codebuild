@@ -17,7 +17,7 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       #- $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
-      - $(aws configure set aws_access_key_id AKIAUSMICDMC6GT7ECE4 aws_secret_key=YWa6N31/VuU7xwoGNGkFSVNeZX3te2LmqIhz6Niyc)
+      - $(aws configure set aws_access_key_id AKIAUSMICDMC6GT7ECE4)
       - $(aws configure set aws_secret_key YWa6N31/VuU7xwoGNGkFSVNeZX3te2LmqIhz6Niyc)
       - $(aws configure set region us-east-2)
       - $(aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com)
